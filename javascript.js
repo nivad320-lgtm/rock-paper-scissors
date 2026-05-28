@@ -11,7 +11,16 @@ function getRandomInt(max) {
 function getComputerChoice() {
     // return one of the following string values: 
     // “rock”, “paper” or “scissors”.
-    return getRandomInt(3);
+    switch(getRandomInt(3)) {
+        case 0:
+            return "rock";
+            break;
+        case 1:
+            return "paper";
+            break;
+        case 2:
+            return "scissors";
+    }
 }
 
 function getHumanChoice() {
@@ -36,15 +45,27 @@ function playGame() {
         // make humanChoice parameter case-insensitive
         humanChoice = humanChoice.toLowerCase();
         // If human is rock and computer is 0(rock)
-        if (humanChoice==='rock' && computerChoice ===0) {
+        if (humanChoice === computerChoice) {
             console.log("It's a Draw!");
             // Here the computer 1 == paper
-        } else if (humanChoice==='rock' && computerChoice===1) {
-            console.log("You lose! Paper beats Rock.");
+        } else if (humanChoice==='rock' && computerChoice==='paper') {
+            console.log("You lose! Paper beats rock.");
             computerScore++
             // Here the computer 2 == scissors
-        } else if (humanChoice === 'rock' && computerChoice === 2) {
+        } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
             console.log("You win! Rock beats scissors.")
+            humanScore++;
+        } else if (humanChoice === 'paper' && computerChoice === 'rock') {
+            console.log("You win! Paper beats rock.");
+            humanScore++;
+        } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
+            console.log("You lose! Rock beats paper.");
+            computerScore++
+        }else if (humanChoice === 'scissors' && computerChoice === 'rock') {
+            console.log("You lose! Rock beats scissors.");
+            computerScore++;
+        } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
+            console.log("You win! Scissors beats paper");
             humanScore++;
         }
         
@@ -54,7 +75,14 @@ function playGame() {
     playRound(getHumanChoice(),getComputerChoice());
     playRound(getHumanChoice(),getComputerChoice());
     playRound(getHumanChoice(),getComputerChoice());
-    console.log(humanScore);
+    console.log(`You: ${humanScore}, Computer: ${computerScore}`);
+    if (humanScore > computerScore) {
+        console.log("You win!");
+    } else if (humanScore === computerScore) {
+        console.log("Draw!");
+    } else {
+        console.log("You lose!");
+    }
 }
 playGame();
 // Winner +1 the point

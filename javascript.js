@@ -20,27 +20,42 @@ function getHumanChoice() {
     return prompt("What is your choice?");
 }
 
-// Declare variables in the global scope
-// It will keep track of player score
-let humanScore = 0;
-let computerScore = 0;
 
 // Write a logic to play a single round
-function playRound(humanChoice, computerChoice) {
-    // make humanChoice parameter case-insensitive
-    humanChoice = humanChoice.toLowerCase();
-    if (humanChoice==='rock' && computerChoice ===0) {
-        console.log("It's a Draw!");
-    } else if (humanChoice==='rock' && computerChoice===1) {
-        console.log("You lose! Paper beats Rock.");
-        computerScore++
-    } else if (humanChoice === 'rock' && computerChoice === 2) {
-        console.log("You win! Rock beats scissors.")
-        humanScore++;
+
+// let humanScore = 0
+// let computerScore = 0
+
+// playRound(getHumanChoice(), getComputerChoice());
+// console.log(humanScore)
+// console.log(computerScore)
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+    function playRound(humanChoice, computerChoice) {
+        // make humanChoice parameter case-insensitive
+        humanChoice = humanChoice.toLowerCase();
+        // If human is rock and computer is 0(rock)
+        if (humanChoice==='rock' && computerChoice ===0) {
+            console.log("It's a Draw!");
+            // Here the computer 1 == paper
+        } else if (humanChoice==='rock' && computerChoice===1) {
+            console.log("You lose! Paper beats Rock.");
+            computerScore++
+            // Here the computer 2 == scissors
+        } else if (humanChoice === 'rock' && computerChoice === 2) {
+            console.log("You win! Rock beats scissors.")
+            humanScore++;
+        }
+        
     }
-
+    playRound(getHumanChoice(),getComputerChoice());
+    playRound(getHumanChoice(),getComputerChoice());
+    playRound(getHumanChoice(),getComputerChoice());
+    playRound(getHumanChoice(),getComputerChoice());
+    playRound(getHumanChoice(),getComputerChoice());
+    console.log(humanScore);
 }
-playRound(getHumanChoice(), getComputerChoice())
-
+playGame();
 // Winner +1 the point
 // console.log a winner assignment

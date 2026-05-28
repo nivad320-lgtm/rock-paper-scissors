@@ -14,4 +14,11 @@ function getComputerChoice() {
     console.log( getRandomInt(3));
 }
 
-getComputerChoice()
+function getHumanChoice() {
+    // Prompt user to make a choice between rock, paper, scissor
+    // Store their choice in a Variable
+    let userChoice = prompt("What is your choice?");
+}
+
+let humanScore = 0;
+let computerScore = 0;

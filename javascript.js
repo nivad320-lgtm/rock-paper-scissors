@@ -68,7 +68,7 @@ function playGame(e) {
             winnerText.textContent = 'You win!';
         } else if (humanScore < computerScore) {
             winnerText.textContent = 'You lose';
-        }
+        } else winnerText.textContent = 'Draw!';
     }
 }
 
@@ -84,15 +84,3 @@ function playGame(e) {
     rockButton.addEventListener('click', playGame)
     paperButton.addEventListener('click', playGame)
     scissorsButton.addEventListener('click', playGame)
-    // playGame();
-    // Winner +1 the point
-    // console.log a winner assignment
-//     console.log(`You: ${humanScore}, Computer: ${computerScore}`);
-//     if (humanScore > computerScore) {
-//         console.log("You win!");
-//     } else if (humanScore === computerScore) {
-//         console.log("Draw!");
-//     } else {
-//         console.log("You lose!");
-//     }
-// }

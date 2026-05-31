@@ -70,11 +70,7 @@ function playGame() {
         }
         
     }
-    playRound(getHumanChoice(),getComputerChoice());
-    playRound(getHumanChoice(),getComputerChoice());
-    playRound(getHumanChoice(),getComputerChoice());
-    playRound(getHumanChoice(),getComputerChoice());
-    playRound(getHumanChoice(),getComputerChoice());
+
     console.log(`You: ${humanScore}, Computer: ${computerScore}`);
     if (humanScore > computerScore) {
         console.log("You win!");
@@ -84,6 +80,11 @@ function playGame() {
         console.log("You lose!");
     }
 }
-playGame();
+
+
+
+
+
+// playGame();
 // Winner +1 the point
 // console.log a winner assignment
